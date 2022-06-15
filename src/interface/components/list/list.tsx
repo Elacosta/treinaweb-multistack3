@@ -6,6 +6,7 @@ import { TextService } from '../../../data/services/textServices';
 
 interface ListProps{
     pets: Pet[];
+    onSelect: (pet: Pet) => void;
 }
 
 export default function PetList(props: ListProps) {
@@ -26,7 +27,9 @@ export default function PetList(props: ListProps) {
                         <Button
                         variant="contained"
                         fullWidth
-                        >Adotar {pet.name}
+                        onClick={() => props.onSelect(pet)}
+                        >
+                            Adotar {pet.name}
                         </Button>
                     </Information>
                 </ListItem>
